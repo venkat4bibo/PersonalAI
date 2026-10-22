@@ -1,0 +1,57 @@
+{
+  "expo": {
+    "name": "Phone Assistant",
+    "slug": "phone-assistant",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0D1B2A"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yourname.phoneassistant",
+      "infoPlist": {
+        "NSMicrophoneUsageDescription": "Microphone access is needed to listen and transcribe your meetings.",
+        "NSSpeechRecognitionUsageDescription": "Speech recognition is used to transcribe meeting audio.",
+        "NSContactsUsageDescription": "Contacts access helps auto-fill birthday and anniversary names.",
+        "NSCalendarsUsageDescription": "Calendar access lets the assistant sync upcoming events.",
+        "UIBackgroundModes": ["audio", "fetch", "remote-notification"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0D1B2A"
+      },
+      "package": "com.yourname.phoneassistant",
+      "permissions": [
+        "RECORD_AUDIO",
+        "READ_CONTACTS",
+        "READ_CALENDAR",
+        "WRITE_CALENDAR",
+        "RECEIVE_BOOT_COMPLETED",
+        "VIBRATE",
+        "READ_PHONE_STATE",
+        "FOREGROUND_SERVICE",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "plugins": [
+      "expo-router",
+      "expo-notifications",
+      [
+        "expo-av",
+        { "microphonePermission": "Allow Phone Assistant to access your microphone for meeting transcription." }
+      ],
+      ["expo-contacts", { "contactsPermission": "Allow access to contacts to auto-fill event names." }],
+      "expo-calendar"
+    ],
+    "scheme": "phone-assistant",
+    "extra": {
+      "eas": { "projectId": "YOUR_EAS_PROJECT_ID" }
+    }
+  }
+}
